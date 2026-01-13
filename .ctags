@@ -11,7 +11,7 @@
 --regex-customjs=/^[ \t]*(export[ \t]+)?(async[ \t]+)?function[ \t]+([a-zA-Z0-9_]+)/\3/f,functions/
 --regex-customjs=/^[ \t]*(export[ \t]+)?interface[ \t]+([a-zA-Z0-9_]+)/\2/i,interfaces/
 --regex-customjs=/^[ \t]*(export[ \t]+)?enum[ \t]+([a-zA-Z0-9_]+)/\2/e,enums/
---regex-customjs=/^[ \t]*(public|private|protected)?[ \t]*(static)?[ \t]*(readonly)?[ \t]*(async)?[ \t]*(#[a-zA-Z0-9_]+)[ \t]*\(/\5/m,methods/
+--regex-customjs=/^[ \t]*(public|private|protected)?[ \t]*(static)?[ \t]*(readonly)?[ \t]*(async)?[ \t]*(override)?[ \t]*([a-zA-Z][a-zA-Z0-9_]*)[ \t]*\(/\6/m,methods/
 --regex-customjs=/^[ \t]*(public|private|protected)?[ \t]*(static)?[ \t]*(readonly)?[ \t]*(async)?[ \t]*(override)?[ \t]*([a-zA-Z][a-zA-Z0-9_]*)[ \t]*\([^)]*\)[ \t]*[:{]/\6/m,methods/
 --regex-customjs=/^[ \t]*(public|private|protected)?[ \t]*(static)?[ \t]*(readonly)?[ \t]*(#[a-zA-Z0-9_]+)[ \t]*[:=]/\4/p,properties/
 --regex-customjs=/^[ \t]*(public|private|protected)?[ \t]*(static)?[ \t]*(readonly)?[ \t]*([a-zA-Z][a-zA-Z0-9_]*)[ \t]*[:=][ \t]*[^(]/\4/p,properties/
