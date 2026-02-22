@@ -15,3 +15,15 @@ This repo basically contains a `.ctags` file that is compatible and only tested 
 point, is no longer maintained but, it still does the job. It relies on regexes to find patterns in code, what could be simpler? This is my maintained
 configuration that I use for JavaScript, TypeScript and Vue single file components. It's not 100% perfect, which is why I'm sharing it, because it
 will evolve over time as I come across scenarios where the current patterns don't match anything.
+
+## Usage
+
+Copy the `.ctags` file to the root of your project (or your home directory to apply it globally), then generate tags with:
+
+```
+ctags -R .
+```
+
+This will recursively scan the current directory and produce a `tags` file that your editor can use for go-to-definition.
+
+To regenerate tags you just run the same command again. For a smoother workflow, consider using [vim-gutentags](https://github.com/ludovicchabant/vim-gutentags) which automatically regenerates your tags file in the background whenever you save a file.
