@@ -1,6 +1,5 @@
 --links=no
 --excmd=number
---recurse=yes
 
 --langdef=customjs
 --langmap=customjs:.js.cjs.mjs.ts.vue
