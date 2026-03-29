@@ -391,3 +391,82 @@ const handleRequest = async ({ method, url, body = null }) => {
   if (body) options.body = JSON.stringify(body);
   return fetch(url, options);
 };
+
+// -----------------------------------------------------------------------------
+// Function Expressions with let/const/var
+// -----------------------------------------------------------------------------
+
+const processItems = function(items) {
+  return items.map(item => item.id);
+};
+
+const validateEmail = function(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+};
+
+let updateState = function(state, action) {
+  switch (action.type) {
+    case 'INCREMENT':
+      return { ...state, count: state.count + 1 };
+    default:
+      return state;
+  }
+};
+
+let onResize = function(event) {
+  console.log('Window resized:', event.target.innerWidth);
+};
+
+var legacyHandler = function(data) {
+  return data.toString();
+};
+
+// Async function expressions
+const fetchUsers = async function(endpoint) {
+  const response = await fetch(endpoint);
+  return response.json();
+};
+
+let retryOperation = async function(fn, attempts) {
+  for (let i = 0; i < attempts; i++) {
+    try {
+      return await fn();
+    } catch (e) {
+      if (i === attempts - 1) throw e;
+    }
+  }
+};
+
+// Named function expressions (the outer variable name should be tagged)
+const factorial = function computeFactorial(n) {
+  return n <= 1 ? 1 : n * computeFactorial(n - 1);
+};
+
+let memoize = function createMemoized(fn) {
+  const cache = new Map();
+  return function(key) {
+    if (!cache.has(key)) cache.set(key, fn(key));
+    return cache.get(key);
+  };
+};
+
+// Generator function expressions
+const idGenerator = function*(prefix) {
+  let id = 0;
+  while (true) {
+    yield `${prefix}-${id++}`;
+  }
+};
+
+// Exported function expressions
+export const parseJSON = function(str) {
+  try {
+    return JSON.parse(str);
+  } catch (e) {
+    return null;
+  }
+};
+
+export let stringify = function(obj) {
+  return JSON.stringify(obj, null, 2);
+};
